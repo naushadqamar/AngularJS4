@@ -1,0 +1,33 @@
+<div>
+  <h2 md-dialog-title>Add Note</h2>
+  <md-form-field class="example-full-width">
+    <textarea mdInput placeholder="Notes Text" #notestText required></textarea>
+  </md-form-field>
+  <md-dialog-content>
+
+  <br>
+  <md-radio-group (chaange)="onRadioChange($event)">
+
+
+<md-grid-list cols="5" rowHeight="2:1">
+    <md-radio-group class="example-radio-group" [(ngModel)]="selectedClr">
+      <md-radio-button class="example-radio-button" *ngFor="let clr of colours" [value]="clr">
+        <div  class="yellow">
+          <md-grid-tile>
+              {{clr}}
+          </md-grid-tile>
+        </div>
+      </md-radio-button>
+
+    </md-radio-group>
+    <div style="display:none">{{selectedClr}}</div>
+  </md-grid-list>
+
+  </md-radio-group>
+  <br>
+  </md-dialog-content>
+  <md-dialog-actions>
+    <button md-raised-button color="primary" (click) = "onCloseCancel()">Cancel</button>
+      <button md-raised-button color="primary"  (click) = "onCloseConfirm(notestText.value)">Save</button>
+  </md-dialog-actions>
+</div>

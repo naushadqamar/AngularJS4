@@ -1,0 +1,57 @@
+<h1>My Notes</h1>
+<md-grid-list cols="5" rowHeight="2:1">
+      <md-grid-tile>
+        <button md-raised-button color="primary" (click)="openDialog()">Add</button>
+      </md-grid-tile>
+      <md-grid-tile>
+        <label >Filter  :   </label>
+      </md-grid-tile>
+      <md-grid-tile>
+          <div  class="lightblue">
+            <md-checkbox
+              name="options"
+                value = "lightblue"
+                (change)="OnFilter($event,'lightblueDivStyle')"
+              [checked]="isChecked">
+            </md-checkbox>
+          </div>
+      </md-grid-tile>
+      <md-grid-tile>
+          <div   class="yellow">
+            <md-checkbox
+            name="options"
+            value = "yellow"
+            (change)="OnFilter($event,'yellowDivStyle')"
+              [checked]="isChecked">
+            </md-checkbox>
+          </div>
+      </md-grid-tile>
+      <md-grid-tile>
+        <div   class="red">
+          <md-checkbox
+          name="options"
+          #redCheckbox
+            value = "red"
+            [checked]="isChecked"
+            (change)="OnFilter($event,'redDivStyle')">
+          </md-checkbox>
+        </div>
+    </md-grid-tile>
+
+  </md-grid-list>
+
+<br>
+ <!-- *ngIf="redCheckbox.checked && {{note.notesColour}} !== 'lightblueDivStyle'"  -->
+   <!-- <div *ngIf="redCheckbox.checked"  class= {{note.notesColour}}  > -->
+<md-grid-list cols="3" rowHeight="2:1">
+  <md-grid-tile *ngFor="let note of notes;let i = index"
+    >
+
+    <div *ngIf="redCheckbox.checked" style="display:visible;"  class= {{note.notesColour}}  >
+       {{note.notesText}}  {{note.notesColour}}
+    </div>
+  </md-grid-tile>
+</md-grid-list>
+<ul>
+
+</ul>
