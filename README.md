@@ -3,8 +3,6 @@ ANgularJS4 Typescript basic project
 
 Clone this repo
 
-git clone https://github.com/sandeep1995/angular-4-search-devs.git
-
 Install packages
 
 npm install
